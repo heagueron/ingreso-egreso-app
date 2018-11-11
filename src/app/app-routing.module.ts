@@ -7,6 +7,7 @@ import { RegisterComponent } from 'src/app/auth/register/register.component';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { dashboardRoutes } from 'src/app/dashboard/dashboard.routes';
+import { AuthGuardService } from 'src/app/auth/auth-guard.service';
 
 const routes: Routes = [
 
@@ -16,7 +17,8 @@ const routes: Routes = [
     { 
         path: '', 
         component: DashboardComponent,
-        children: dashboardRoutes   //children receives an array of routes
+        children: dashboardRoutes,   //children receives an array of routes
+        canActivate: [ AuthGuardService]
         
     },
 
